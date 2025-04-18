@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Moreira - Design que Conecta Marcas</title> <!-- Título otimizado para SEO -->
+    <meta name="description" content="Designer Gráfico especialista em Identidade Visual e Social Media. Transforme a comunicação visual da sua marca e conecte-se com seu público."> <!-- Descrição para SEO -->
+
+    <!-- Importa uma fonte do Google Fonts (Exemplo: Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Configurações Globais e Variáveis CSS --- */
+        :root {
+            --cor-primaria: #3498db; /* Azul - Cor principal (Alan deve trocar) */
+            --cor-secundaria: #2c3e50; /* Azul escuro/Grafite - Para textos */
+            --cor-destaque: #f1c40f; /* Amarelo - Para CTAs e detalhes */
+            --cor-fundo: #ffffff; /* Branco */
+            --cor-fundo-secao: #f9f9f9; /* Cinza claro para alternar seções */
+            --fonte-principal: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave para links internos */
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            color: var(--cor-secundaria);
+            line-height: 1.6;
+            background-color: var(--cor-fundo);
+            font-size: 16px; /* Base para REM */
+        }
+
+        /* --- Container Principal --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px; /* Espaçamento lateral */
+        }
+
+        /* --- Cabeçalho (Hero Section) --- */
+        .hero {
+            background-color: var(--cor-primaria); /* Cor de fundo fallback */
+            /* Imagem de fundo - Alan deve trocar 'images/hero-background.jpg' */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center center;
+            color: var(--cor-fundo);
+            text-align: center;
+            padding: 100px 20px 80px; /* Espaçamento interno */
+            min-height: 70vh; /* Altura mínima para ocupar boa parte da tela inicial */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem; /* Tamanho grande para impacto */
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidade */
+        }
+
+        .hero .slogan {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            max-width: 600px; /* Limita largura do slogan */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* --- Seção Sobre --- */
+        .sobre {
+            padding: 60px 0;
+            background-color: var(--cor-fundo);
+        }
+
+        .sobre-content {
+            display: flex;
+            flex-wrap: wrap; /* Permite quebrar em telas menores */
+            align-items: center;
+            gap: 40px; /* Espaço entre texto e imagem */
+        }
+
+        .sobre-texto {
+            flex: 1; /* Ocupa o espaço disponível */
+            min-width: 300px; /* Largura mínima antes de quebrar */
+        }
+
+        .sobre-texto h2 {
+            font-size: 2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+        }
+
+        .sobre-foto {
+            flex-basis: 250px; /* Largura base da imagem */
+            text-align: center;
+        }
+
+        .sobre-foto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; /* Deixa a foto redonda */
+            border: 5px solid var(--cor-primaria); /* Borda na cor primária */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- Seção Projetos (Galeria) --- */
+        .projetos {
+            padding: 60px 0;
+            background-color: var(--cor-fundo-secao); /* Fundo levemente diferente */
+            text-align: center;
+        }
+
+        .projetos h2 {
+            font-size: 2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 40px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            /* Cria colunas responsivas: Mínimo 280px, máximo 1fr (ocupa espaço igual) */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; /* Espaço entre os itens da grade */
+        }
+
+        .portfolio-item {
+            background-color: var(--cor-fundo);
+            border-radius: 8px;
+            overflow: hidden; /* Garante que a imagem não saia do card */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .portfolio-item img {
+            display: block; /* Remove espaço extra abaixo da imagem */
+            width: 100%;
+            height: 250px; /* Altura fixa para as imagens */
+            object-fit: cover; /* Cobre o espaço sem distorcer */
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--cor-secundaria);
+        }
+
+        .portfolio-info p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* --- Seção CTA (Contato) --- */
+        .contato {
+            padding: 80px 0;
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contato p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botão Principal CTA */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cor-destaque);
+            color: var(--cor-secundaria); /* Cor do texto do botão */
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px; /* Botão arredondado */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px; /* Espaço antes do formulário/WhatsApp */
+        }
+
+        .cta-button:hover {
+            background-color: #e0b00d; /* Tom mais escuro do destaque no hover */
+            transform: translateY(-3px);
+        }
+
+        /* Formulário de Contato */
+        .form-contato {
+            max-width: 600px;
+            margin: 30px auto 0;
+            padding: 30px;
+            background-color: var(--cor-fundo);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+            color: var(--cor-secundaria); /* Texto dentro do form */
+        }
+
+        .form-contato label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .form-contato input[type="text"],
+        .form-contato input[type="email"],
+        .form-contato textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--fonte-principal);
+            font-size: 1rem;
+        }
+
+        .form-contato textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+            min-height: 120px;
+        }
+
+        .form-contato button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--cor-primaria);
+            color: var(--cor-fundo);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-contato button[type="submit"]:hover {
+            background-color: #2980b9; /* Tom mais escuro da cor primária */
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366; /* Cor oficial do WhatsApp */
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px; /* Espaço acima do botão */
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DAE50; /* Tom mais escuro no hover */
+            transform: translateY(-2px);
+        }
+        /* Ícone simples para o botão WhatsApp (pode ser melhorado com SVG ou FontAwesome) */
+        .whatsapp-button::before {
+            content: '💬 '; /* Emoji simples como ícone */
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+
+        /* --- Rodapé --- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--cor-secundaria);
+            color: #bdc3c7; /* Cinza claro para o texto do rodapé */
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: var(--cor-fundo);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- Media Queries para Responsividade --- */
+
+        /* Telas médias (tablets) */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .slogan {
+                font-size: 1.2rem;
+            }
+            .sobre-content {
+                flex-direction: column; /* Empilha texto e imagem */
+                text-align: center;
+            }
+            .sobre-foto {
+                margin-top: 30px;
+                flex-basis: auto; /* Reseta a base */
+                width: 200px; /* Tamanho fixo para a foto no mobile */
+            }
+            .contato h2 {
+                font-size: 1.8rem;
+            }
+            .contato p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Telas pequenas (smartphones) */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .slogan {
+                font-size: 1rem;
+            }
+            .hero {
+                padding: 80px 15px 60px;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .sobre-texto h2, .projetos h2, .contato h2 {
+                font-size: 1.6rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* Uma coluna no mobile */
+                gap: 20px;
+            }
+             .cta-button, .whatsapp-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .form-contato {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Bloco 1: Cabeçalho Impactante -->
+    <header class="hero" id="inicio">
+        <div class="container">
+            <h1>Alan Moreira</h1>
+            <p class="slogan">Design que Conecta. Marcas que se Destacam.</p>
+            <!-- Opcional: Botão que rola para a seção de contato -->
+            <!-- <a href="#contato" class="cta-button">Ver Projetos & Contato</a> -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Bloco 2: Conexão e Apresentação -->
+        <section class="sobre" id="sobre">
+            <div class="container sobre-content">
+                <div class="sobre-texto">
+                    <h2>E aí! Sou o Alan. Bora criar algo incrível juntos?</h2>
+                    <p>
+                        Prazer, sou Alan Moreira! Designer gráfico focado em criar identidades visuais que contam a história da sua marca e em dar aquele gás na sua presença online com posts que realmente engajam. Meu objetivo? Fazer seu negócio não só parecer incrível, mas também se conectar de verdade com seu público. Acredito que um bom design vai muito além do visual: ele gera resultado. Vamos bater um papo sobre como posso ajudar <em>você</em> a se destacar?
+                    </p>
+                </div>
+                <div class="sobre-foto">
+                    <!-- Alan deve substituir por sua foto profissional -->
+                    <img src="images/alan-moreira-foto.jpg" alt="Foto de Alan Moreira, designer gráfico">
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloco 3: Galeria de Projetos Selecionados -->
+        <section class="projetos" id="projetos">
+            <div class="container">
+                <h2>Dá uma olhada no que já aprontei por aí:</h2>
+                <div class="portfolio-grid">
+                    <!-- Item 1: Identidade Visual -->
+                    <div class="portfolio-item">
+                        <!-- Alan deve substituir pela imagem do projeto -->
+                        <img src="images/projeto-idvisual-1.jpg" alt="Projeto de Identidade Visual para Cliente X">
+                        <div class="portfolio-info">
+                            <h3>Marca Cliente X</h3>
+                            <p>Identidade Visual completa desenvolvida para trazer modernidade e conexão com o público jovem.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Social Media -->
+                    <div class="portfolio-item">
+                         <!-- Alan deve substituir pela imagem do projeto -->
+                        <img src="images/projeto-socialmedia-1.jpg" alt="Posts de Social Media para Cliente Y">
+                        <div class="portfolio-info">
+                            <h3>Redes Sociais Cliente Y</h3>
+                            <p>Criação de linha editorial visual e posts para Instagram, aumentando o engajamento em 30%.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Identidade Visual -->
+                    <div class="portfolio-item">
+                         <!-- Alan deve substituir pela imagem do projeto -->
+                        <img src="images/projeto-idvisual-2.jpg" alt="Projeto de Logo para Startup Z">
+                        <div class="portfolio-info">
+                            <h3>Logo Startup Z</h3>
+                            <p>Desenvolvimento de logotipo e símbolo para startup de tecnologia, focando em inovação e confiança.</p>
+                        </div>
+                    </div>
+
+                     <!-- Item 4: Social Media (Exemplo adicional) -->
+                    <div class="portfolio-item">
+                        <!-- Alan deve substituir pela imagem do projeto -->
+                       <img src="images/projeto-socialmedia-2.jpg" alt="Campanha de Social Media para Restaurante W">
+                       <div class="portfolio-info">
+                           <h3>Campanha Restaurante W</h3>
+                           <p>Posts criativos e stories interativos para divulgar novo cardápio e eventos especiais.</p>
+                       </div>
+                   </div>
+
+                   <!-- Adicionar mais portfolio-item conforme necessário -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloco 4: Chamada para Ação Final (Contato) -->
+        <section class="contato" id="contato">
+            <div class="container">
+                <h2>Curtiu? Vamos tirar sua ideia do papel!</h2>
+                <p>
+                    Seja pra criar uma identidade visual marcante do zero, renovar a que você já tem, ou dar um up nas suas redes sociais, estou pronto pra te ajudar. Me conta um pouco sobre seu desafio!
+                </p>
+
+                <!-- Opção 1: Botão de Orçamento (pode levar ao formulário abaixo ou direto ao WhatsApp) -->
+                <a href="#form-contato" class="cta-button">QUERO UM ORÇAMENTO</a>
+
+                 <!-- Opção 2: Botão de WhatsApp -->
+                 <!-- Substitua 55119XXXXXXXX pelo número do Alan no formato internacional -->
+                 <a href="https://wa.me/55119XXXXXXXX?text=Olá%20Alan!%20Vi%20sua%20página%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                    target="_blank" class="whatsapp-button">
+                    Conversar pelo WhatsApp
+                 </a>
+
+                <!-- Formulário de Contato -->
+                <form action="#" method="POST" class="form-contato" id="form-contato">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">Seu Melhor Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="mensagem">Conte um pouco sobre seu projeto:</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+
+                    <!-- Este botão envia o formulário. Precisa de backend para funcionar. -->
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Alan Moreira | Designer Gráfico. Todos os direitos reservados.</p>
+            <!-- Opcional: Adicionar links para redes sociais (Ex: LinkedIn, Behance) -->
+             <p>
+                <a href="mailto:contato@alanmoreira.design">contato@alanmoreira.design</a>
+                <!-- | <a href="#">LinkedIn</a> | <a href="#">Behance</a> -->
+             </p>
+        </div>
+    </footer>
+
+    <!-- Opcional: Scripts JavaScript podem ser adicionados aqui no final -->
+    <!-- <script src="script.js"></script> -->
+
+</body>
+</html>
